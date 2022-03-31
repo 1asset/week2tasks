@@ -1,28 +1,48 @@
+from itertools import permutations
+
+
+
 n = int(input())
-print("_____________________________")
-if n == 1:
-    print('1')
-elif n == 2:
-    print('1')
-    print('2')
-elif n == 3:
-    print('1')
-    print('2')
-    print('3')
-else:
-    print('1')
-    print('2')
-    print('3')
 
-a1 = 1
-a2 = 2
-a3 = 3
+array = []
 
-for i in range (4, n+1):
-    a = a3 + a2 - 2*a1
-    print(a)
-    a3 = a
-    a2 = a3
-    a1 = a2
+for i in range(1,n+1):
+    
+    array.append(i)
 
 
+permutation = permutations(array)
+
+perm = list(permutation)
+
+arraycheck = []
+
+arraycheck1=[]
+
+plus = 0
+
+for i in perm:
+    arraycheck.append(i)
+
+    arraycheck1 = arraycheck[0]
+
+    arraycheck.clear()
+
+    for i in range(0,n-1):
+
+      plus +=  arraycheck1[n-1-i]-arraycheck1[n-1-(i+1)]
+      
+
+
+    
+    if (plus>0):
+
+        print("This permutaion in acending order")
+
+        print(arraycheck1)
+
+        
+
+    else :
+
+        print(" ")
