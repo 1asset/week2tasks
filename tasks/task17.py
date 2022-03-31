@@ -1,18 +1,60 @@
-n = int(input())
-print("_________________________________")
-if n == 1:
-    print('1')
-elif n == 2:
-    print('2')
-else:
-    print('1')
-    print('2')
-    
-a1 = 1
-a2 = 2
+from itertools import permutations
 
-for i in range(3, n+1):
-    a = (a1+2*a2)/i
-    print(a)
-    a1=a2
-    a2=a
+
+
+n = int(input())
+
+array = []
+
+for i in range(1,n+1):
+    
+    array.append(i)
+
+
+permutation = permutations(array)
+
+perm = list(permutation)
+
+arraycheck = []
+
+arraycheck1=[]
+
+even = []
+
+for i in perm:
+    arraycheck.append(i)
+
+    arraycheck1 = arraycheck[0]
+
+    arraycheck.clear()
+
+    for i in arraycheck1:
+        if i%2==0:
+            even.append(i)
+    
+    flag = 0
+
+    test_list1 = even[:]
+    test_list1.sort()
+    test_list1.reverse()
+    if (test_list1 == even):
+        flag = 1
+      
+    # printing result
+    if (flag) :
+        print ("Yes, Even numbers on descending order")
+        print(arraycheck1)
+        even.clear()
+    else :
+        print ("No, List is not sorted.")
+        even.clear()
+
+
+
+
+
+
+
+
+
+    
