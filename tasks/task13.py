@@ -1,13 +1,52 @@
+from itertools import permutations
+from math import factorial,sqrt
 n = int(input())
 
-f1 = 1
-f2 = 1
 
-print(f1)
-print(f2)
+number = sqrt(factorial(n))
 
-for i in range(2, n):
-    f3 = f1 + f2
-    print(f3)
-    f1 = f2
-    f2 = f3
+numberstr= str(number)
+
+array = []
+
+for i in range(1,n+1):
+
+    array.append(i)
+
+
+permutation = permutations(array)
+
+perm = list(permutation)
+
+arraycheck = []
+
+arraycheck1=[]
+
+multiplication = 1
+
+for i in perm:
+    arraycheck.append(i)
+
+    arraycheck1 = arraycheck[0]
+
+    arraycheck.clear()
+
+    for i in range(0,n-1):
+        multiplication *= abs(arraycheck1[i] -arraycheck1[i+1])
+
+    if (multiplication<number):
+
+        print("This permutaion is less than " + numberstr)
+
+        print(arraycheck1)
+        
+        multiplication = 1
+
+        
+
+    else :
+
+        print(" ")
+
+        
+
