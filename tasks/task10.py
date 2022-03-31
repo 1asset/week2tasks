@@ -1,11 +1,15 @@
-from math import factorial
+from math import sin
 
-x = int(input())
-n = int(input())
+n, a, b = int(input()), int(input()), int(input())
 
-total = 1
+h = round((b-a)/n)
 
-for i in range(1, n+1):
-    total += x/factorial(i)
-        
-print(total)
+print(h)
+
+print ("______________________________")
+
+
+print(sin(a))
+
+for x in range (1, h):
+    print(1-sin(a+x*h))
