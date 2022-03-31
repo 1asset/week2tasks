@@ -1,14 +1,60 @@
-from math import factorial
+from itertools import permutations
 
-x = int(input())
+
+
 n = int(input())
 
-total = 1
+array = []
 
-for i in range(1, n+1):
-    if i%2 > 0:
-        total -= x/factorial(2*i)
-    elif i%2 == 0:
-        total += x/factorial(2*i)
-        
-print(total)
+for i in range(1,n+1):
+    
+    array.append(i)
+
+
+permutation = permutations(array)
+
+perm = list(permutation)
+
+arraycheck = []
+
+arraycheck1=[]
+
+odd = []
+
+for i in perm:
+    arraycheck.append(i)
+
+    arraycheck1 = arraycheck[0]
+
+    arraycheck.clear()
+
+    for i in arraycheck1:
+        if i%2>0:
+            odd.append(i)
+    
+    flag = 0
+
+    test_list1 = odd[:]
+    test_list1.sort()
+    if (test_list1 == odd):
+        flag = 1
+      
+    # printing result
+    if (flag) :
+        print ("Yes, Odd numbers sorted")
+        print(arraycheck1)
+        odd.clear()
+    else :
+        print ("No, List is not sorted.")
+        odd.clear()
+
+
+
+
+
+
+
+
+
+    
+
